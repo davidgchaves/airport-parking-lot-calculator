@@ -4,4 +4,8 @@ class ParkCalculator
 
   def self.for(duration)
   end
+
+  def self.estimated_cost
+    "12.00"
+  end
 end

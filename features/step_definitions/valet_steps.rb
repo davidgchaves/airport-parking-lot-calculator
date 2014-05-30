@@ -3,6 +3,6 @@ When /^I park my car in the Valet Parking Lot for (.*)$/ do |duration|
   ParkCalculator.for duration
 end
 
-Then /^I will have to pay (.*)$/ do |price|
-  pending # express the regexp above with the code you wish you had
+Then /^I will have to pay \$ (.*)$/ do |price|
+  expect(ParkCalculator.estimated_cost).to eq price
 end
