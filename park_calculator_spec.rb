@@ -9,5 +9,10 @@ describe ParkCalculator do
       park_calculator = ParkCalculator.new valet, 0
       expect(park_calculator.estimated_cost).to eq 0
     end
+
+    it "costs 12$ for 1 minutes" do
+      park_calculator = ParkCalculator.new valet, 1
+      expect(park_calculator.estimated_cost).to eq 12
+    end
   end
 end

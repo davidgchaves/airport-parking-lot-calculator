@@ -7,6 +7,7 @@ class ParkCalculator
   end
 
   def estimated_cost
-    0
+    return 12 if duration > 0
+    return 0
   end
 end
