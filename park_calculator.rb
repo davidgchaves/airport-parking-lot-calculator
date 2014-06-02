@@ -1,11 +1,12 @@
 class ParkCalculator
-  def self.park_car_in(parking)
+  attr_reader :parking, :duration
+
+  def initialize(parking, duration)
+    @parking = parking
+    @duration = duration
   end
 
-  def self.for(duration)
-  end
-
-  def self.estimated_cost
+  def estimated_cost
     "12.00"
   end
 end

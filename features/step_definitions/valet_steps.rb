@@ -1,8 +1,7 @@
 When /^I park my car in the Valet Parking Lot for (.*)$/ do |duration|
-  ParkCalculator.park_car_in "Valet Parking"
-  ParkCalculator.for duration
+  @park_calculator = ParkCalculator.new "Valet Parking", duration
 end
 
 Then /^I will have to pay \$ (.*)$/ do |price|
-  expect(ParkCalculator.estimated_cost).to eq price
+  expect(@park_calculator.estimated_cost).to eq price
 end
