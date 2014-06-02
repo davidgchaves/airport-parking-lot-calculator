@@ -19,5 +19,10 @@ describe ParkCalculator do
       park_calculator = ParkCalculator.new valet, 5*60
       expect(park_calculator.estimated_cost).to eq 12
     end
+
+    it "costs 18$ for 5 hours and 1 minute" do
+      park_calculator = ParkCalculator.new valet, 5*60+1
+      expect(park_calculator.estimated_cost).to eq 18
+    end
   end
 end
