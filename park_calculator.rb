@@ -7,6 +7,6 @@ class ParkCalculator
   end
 
   def estimated_cost
-    "12.00"
+    0
   end
 end
