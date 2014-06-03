@@ -1,5 +1,5 @@
-require_relative 'park_calculator'
-require_relative 'parkings'
+require_relative '../park_calculator'
+require_relative '../parkings'
 
 describe ParkCalculator do
   context "Parking in the Valet Parking Lot" do
