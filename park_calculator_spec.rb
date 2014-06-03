@@ -21,7 +21,7 @@ describe ParkCalculator do
     end
 
     it "costs 18$ for 5 hours and 1 minute" do
-      park_calculator = ParkCalculator.new valet, 5*60+1
+      park_calculator = ParkCalculator.new valet, 5*60 + 1
       expect(park_calculator.estimated_cost).to eq 18
     end
 
@@ -31,13 +31,18 @@ describe ParkCalculator do
     end
 
     it "costs 36$ for 1 day and 1 minute" do
-      park_calculator = ParkCalculator.new valet, 24*60+1
+      park_calculator = ParkCalculator.new valet, 24*60 + 1
       expect(park_calculator.estimated_cost).to eq 36
     end
 
     it "costs 54$ for 3 days" do
-      park_calculator = ParkCalculator.new valet, 3*24*60
+      park_calculator = ParkCalculator.new valet, 3 * 24*60
       expect(park_calculator.estimated_cost).to eq 54
+    end
+
+    it "costs 126$ for 1 week" do
+      park_calculator = ParkCalculator.new valet, 7 * 24*60
+      expect(park_calculator.estimated_cost).to eq 126
     end
   end
 end
