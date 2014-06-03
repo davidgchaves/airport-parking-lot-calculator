@@ -7,21 +7,22 @@ class ParkCalculator
   end
 
   def estimated_cost
-    if duration > 0
-      cost = 12
-      if duration > five_hours
-        cost += 6
-        if duration > a_day
-          cost *= ((duration - 1) / a_day).to_i + 1
-        end
-      end
-    else
-      cost = 0
-    end
-    cost
+    duration > 0 ? charge_per_day * number_of_days : 0
   end
 
   private
+
+  def charge_per_day
+    12 + more_than_five_hours_charge
+  end
+
+  def number_of_days
+    ((duration - 1) / a_day).to_i + 1
+  end
+
+  def more_than_five_hours_charge
+    duration > five_hours ? 6 : 0
+  end
 
   def five_hours
     5*60
