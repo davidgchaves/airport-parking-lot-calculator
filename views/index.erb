@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <title>Parking Cost Calculator</title>
+  </head>
+  <body>
+    <p>PARKING COST CALCULATOR</p>
+      <form action="calculate" method="post">
+        <p>
+          <label for="parking-lot">Choose a Parking Lot </label>
+          <select name="parking-lot">
+            <option value="valet" selected>Valet Parking</option>
+            <option value="short" >Short-Term Parking</option>
+            <option value="economy" >Economy Parking</option>
+            <option value="long-garage" >Long-Term Garage Parking</option>
+            <option value="long-surface" >Long-Term Surface Parking</option>
+          </select>
+        </p>
+
+        <p id="starting-date-block">
+          <label for="starting-date">Please input entry date and time</label>
+          <input type="text" name="starting-date" value="YYYY/MM/DD">
+          <input type="text" name="starting-time" value="12:00">
+        </p>
+
+        <p id="leaving-date-block">
+          <label for="leaving-date">Please input leaving date and time</label>
+          <input type="text" name="leaving-date" value="YYYY(MM/DD">
+          <input type="text" name="leaving-time" value="12:00">
+        </p>
+
+        <p>
+          <button type="submit">Calculate</button>
+        </p>
+      </form>
+    </body>
+</html>
