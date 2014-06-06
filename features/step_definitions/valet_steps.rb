@@ -3,5 +3,5 @@ When /^I park my car in the Valet Parking Lot for (#{CAPTURE_DURATION})$/ do |du
 end
 
 Then /^I will have to pay (#{CAPTURE_CASH_AMOUNT})/ do |price|
-  expect(park_calculator.estimated_cost).to eq price
+  expect(page).to have_content "Estimated cost: #{price}"
 end
