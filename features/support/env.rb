@@ -4,4 +4,4 @@ require_relative '../../sinatra_app.rb'
 
 require 'capybara/cucumber'
 
-Capybara.app = Sinatra::Application
+Capybara.app = SinatraApp
