@@ -1,3 +1,3 @@
-require './sinatra_app'
+require './app/sinatra_app'
 
 run SinatraApp

@@ -1,4 +1,4 @@
-require_relative '../time_interval'
+require_relative '../app/time_interval'
 
 describe TimeInterval do
   let(:starting_date) { "2014/12/20" }

@@ -1,6 +1,6 @@
 ENV['RACK_ENV'] = 'test'
 
-require_relative '../../sinatra_app.rb'
+require_relative '../../app/sinatra_app.rb'
 
 require 'capybara/cucumber'
 
