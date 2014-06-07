@@ -1,4 +1,4 @@
-When /^I park my car in the Valet Parking Lot for (#{CAPTURE_DURATION})$/ do |duration|
+When /^I park my car in the Valet Parking Lot for (.*)$/ do |duration|
   create_a_park_calculator "Valet Parking", duration
 end
 
