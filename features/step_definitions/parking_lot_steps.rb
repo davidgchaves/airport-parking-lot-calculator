@@ -1,5 +1,5 @@
-When /^I park my car in the Valet Parking Lot for (.*)$/ do |duration|
-  create_a_park_calculator "Valet Parking", duration
+When /^I park my car in the (.*) Lot for (.*)$/ do |parking_lot, duration|
+  create_a_park_calculator parking_lot, duration
 end
 
 Then /^I will have to pay (#{CAPTURE_CASH_AMOUNT})/ do |price|
