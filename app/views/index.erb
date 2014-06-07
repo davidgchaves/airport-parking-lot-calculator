@@ -1,10 +1,11 @@
+<!DOCTYPE html>
 <html>
   <head>
     <title>Parking Cost Calculator</title>
   </head>
   <body>
     <p>PARKING COST CALCULATOR</p>
-      <form action="calculate" method="post">
+      <form method="post">
         <p>
           <label for="parking-lot">Choose a Parking Lot </label>
           <select name="parking-lot">
@@ -16,17 +17,19 @@
           </select>
         </p>
 
-        <p id="starting-date-block">
+        <p>
           <label for="starting-date">Please input entry date and time</label>
           <input type="text" name="starting-date" value="YYYY/MM/DD">
           <input type="text" name="starting-time" value="12:00">
         </p>
 
-        <p id="leaving-date-block">
+        <p>
           <label for="leaving-date">Please input leaving date and time</label>
           <input type="text" name="leaving-date" value="YYYY/MM/DD">
           <input type="text" name="leaving-time" value="12:00">
         </p>
+
+        <p>Estimated Parking costs: <span id="estimated_cost"><%= @estimated_cost %>$</span></p>
 
         <p>
           <button type="submit">Calculate</button>

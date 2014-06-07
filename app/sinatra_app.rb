@@ -4,13 +4,15 @@ require_relative 'park_calculator'
 
 class SinatraApp < Sinatra::Base
   get "/" do
+    @estimated_cost ||= 0
     erb :index
   end
 
-  post "/calculate" do
+  post "/" do
     time_interval = TimeInterval.new params["starting-date"], params["starting-time"], params["leaving-date"], params["leaving-time"]
     park_calculator = ParkCalculator.new params["parking-lot"], time_interval.duration
 
-    "Estimated cost: #{park_calculator.estimated_cost}$"
+    @estimated_cost = park_calculator.estimated_cost
+    erb :index
   end
 end
