@@ -1,3 +1,5 @@
+require_relative 'parkings'
+
 class ParkCalculator
   attr_reader :parking, :duration
 
@@ -7,7 +9,11 @@ class ParkCalculator
   end
 
   def estimated_cost
-    duration > 0 ? charge_per_day * number_of_days : 0
+    if parking == Parkings.valet
+      duration > 0 ? charge_per_day * number_of_days : 0
+    else
+      duration > 0 ? 2 : 0
+    end
   end
 
   private
