@@ -10,7 +10,7 @@ class ParkCalculator
 
   def estimated_cost
     if parking == Parkings.valet
-      duration > 0 ? charge_per_day * number_of_days : 0
+      charge_per_day * number_of_days
     else
       in_what_half_hour = duration > 2*30 ? ((duration - 1) / 30) + 1 : 2
       maximum_cost_per_day = 24
