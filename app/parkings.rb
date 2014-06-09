@@ -1,9 +1,9 @@
 class Parkings
   def self.valet
-    "Valet Parking"
+    "valet"
   end
 
   def self.short_term
-    "Short-Term Parking"
+    "short-term"
   end
 end
