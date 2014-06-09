@@ -73,5 +73,10 @@ describe ParkCalculator do
       park_calculator = ParkCalculator.new short_term, 60 + 30
       expect(park_calculator.estimated_cost).to eq 3
     end
+
+    it "costs 4$ for 1 hour and 31 minutes" do
+      park_calculator = ParkCalculator.new short_term, 60 + 31
+      expect(park_calculator.estimated_cost).to eq 4
+    end
   end
 end

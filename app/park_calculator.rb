@@ -12,7 +12,8 @@ class ParkCalculator
     if parking == Parkings.valet
       duration > 0 ? charge_per_day * number_of_days : 0
     else
-      duration > 0 ? 2 + (duration - 1) / 60 : 0
+      in_what_half_hour = duration > 60 ? ((duration - 1) / 30) + 1 : 2
+      duration > 0 ? 2 + (in_what_half_hour - 2) : 0
     end
   end
 
