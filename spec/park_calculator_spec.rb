@@ -45,4 +45,13 @@ describe ParkCalculator do
       expect(park_calculator.estimated_cost).to eq 126
     end
   end
+
+  context "Parking in the Short-Term Parking Lot" do
+    let(:short_term) { Parkings.short_term }
+
+    it "costs 0$ for 0 minutes" do
+      park_calculator = ParkCalculator.new short_term, 0
+      expect(park_calculator.estimated_cost).to eq 0
+    end
+  end
 end
