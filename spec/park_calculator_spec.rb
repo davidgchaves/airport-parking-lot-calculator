@@ -97,5 +97,20 @@ describe ParkCalculator do
       park_calculator = ParkCalculator.new short_term, 24*60 + 1
       expect(park_calculator.estimated_cost).to eq 25
     end
+
+    it "costs 48$ for 1 day, 12 hours and 1 minute" do
+      park_calculator = ParkCalculator.new short_term, 24*60 + 12*60 + 1
+      expect(park_calculator.estimated_cost).to eq 48
+    end
+
+    it "costs 108$ for 4 days and 6 hours" do
+      park_calculator = ParkCalculator.new short_term, 4*24*60 + 6*60
+      expect(park_calculator.estimated_cost).to eq 96 + 12
+    end
+
+    it "costs 109$ for 4 days, 6 hours and 1 minute" do
+      park_calculator = ParkCalculator.new short_term, 4*24*60 + 6*60 + 1
+      expect(park_calculator.estimated_cost).to eq 96 + 12 + 1
+    end
   end
 end
