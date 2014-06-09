@@ -12,14 +12,26 @@ class ParkCalculator
     if parking == Parkings.valet
       charge_per_day * number_of_days
     else
-      duration > 0 ? 2 + ((in_what_half_hour > 24 ? maximum_cost_per_day : calculated_cost) - 2) : 0
+      (full_days_parked_in * maximum_cost_per_day) + calculated_cost_for_last_day
     end
   end
 
   private
   # Short-Time Helpers
+  def full_days_parked_in
+    (duration + 1) / (24 * 60)
+  end
+
   def maximum_cost_per_day
     24
+  end
+
+  def calculated_cost_for_last_day
+    if duration > 0
+      2 + ((in_what_half_hour > 24 ? maximum_cost_per_day : calculated_cost) - 2)
+    else
+      0
+    end
   end
 
   def calculated_cost
@@ -27,7 +39,8 @@ class ParkCalculator
   end
 
   def in_what_half_hour
-    ((duration - 1) / 30) + 1
+    last_day_duration = duration % (24 * 60)
+    ((last_day_duration - 1) / 30) + 1
   end
 
   # Valet Helpers
