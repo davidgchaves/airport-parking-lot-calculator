@@ -1,5 +1,4 @@
 require_relative '../app/park_calculator'
-require_relative '../app/parkings'
 
 describe ParkCalculator do
   context "Parking in the Valet Parking Lot" do
