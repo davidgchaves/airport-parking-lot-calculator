@@ -16,7 +16,19 @@ class ParkCalculator
     elsif parking == Parkings.short_term
       ShortTimeParkingCalculator.calculate_cost duration
     else parking == Parkings.economy
-      (((duration - 1) / 60) + 1) * 2
+      @duration > FOUR_HOURS ? FULL_DAY_COST : hours_parked * PRICE_PER_HOUR
     end
+  end
+
+  private
+
+  A_MINUTE = 1
+  AN_HOUR = 60
+  FOUR_HOURS = 4 * 60
+  PRICE_PER_HOUR = 2
+  FULL_DAY_COST = 9
+
+  def hours_parked
+    ((duration - A_MINUTE) / AN_HOUR) + 1
   end
 end
