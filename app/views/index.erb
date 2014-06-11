@@ -5,35 +5,36 @@
   </head>
   <body>
     <p>PARKING COST CALCULATOR</p>
-      <%= form '/', :post %>
-        <p>
-          <%= label :parking_lot, nil, display = 'Choose a Parking Lot' %>
-          <select name="parking-lot">
-            <option value="valet" selected>Valet Parking</option>
-            <option value="short-term">Short-Term Parking</option>
-            <option value="economy">Economy Parking</option>
-            <option value="long-term-garage">Long-Term Garage Parking</option>
-            <option value="long-term-surface">Long-Term Surface Parking</option>
-          </select>
-        </p>
 
-        <p>
-          <%= label :times_and_dates, nil, display = 'Please input entry date and time' %>
-          <%= input :times_and_dates, :starting_date, value: 'YYYY/MM/DD' %>
-          <%= input :times_and_dates, :starting_time, value: '12:00' %>
-        </p>
+    <%= form '/', :post %>
+      <p>
+        <%= label :parking_lot, nil, display = 'Choose a Parking Lot' %>
+        <select name="parking-lot">
+          <option value="valet" selected>Valet Parking</option>
+          <option value="short-term">Short-Term Parking</option>
+          <option value="economy">Economy Parking</option>
+          <option value="long-term-garage">Long-Term Garage Parking</option>
+          <option value="long-term-surface">Long-Term Surface Parking</option>
+        </select>
+      </p>
 
-        <p>
-          <%= label :times_and_dates, nil, display = 'Please input leaving date and time' %>
-          <%= input :times_and_dates, :leaving_date, value: 'YYYY/MM/DD' %>
-          <%= input :times_and_dates, :leaving_time, value: '12:00' %>
-        </p>
+      <p>
+        <%= label :times_and_dates, nil, display = 'Please input entry date and time' %>
+        <%= input :times_and_dates, :starting_date, value: 'YYYY/MM/DD' %>
+        <%= input :times_and_dates, :starting_time, value: '12:00' %>
+      </p>
 
-        <p>Estimated Parking costs: <span id="estimated_cost"><%= @estimated_cost %>$</span></p>
+      <p>
+        <%= label :times_and_dates, nil, display = 'Please input leaving date and time' %>
+        <%= input :times_and_dates, :leaving_date, value: 'YYYY/MM/DD' %>
+        <%= input :times_and_dates, :leaving_time, value: '12:00' %>
+      </p>
 
-        <p>
-          <%= submit value='Calculate' %>
-        </p>
-      </form>
-    </body>
+      <p>Estimated Parking costs: <span id="estimated_cost"><%= @estimated_cost %>$</span></p>
+
+      <p>
+        <%= submit value='Calculate' %>
+      </p>
+    </form>
+  </body>
 </html>
