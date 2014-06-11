@@ -1,8 +1,11 @@
 require 'sinatra'
+require 'sinatra/form_helpers'
 require_relative 'time_interval'
 require_relative 'park_calculator'
 
 class SinatraApp < Sinatra::Base
+  helpers Sinatra::FormHelpers
+
   get "/" do
     initialize_ui_values
 
