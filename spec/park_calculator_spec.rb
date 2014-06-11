@@ -126,5 +126,10 @@ describe ParkCalculator do
       park_calculator = ParkCalculator.new economy, 1
       expect(park_calculator.estimated_cost).to eq 2
     end
+
+    it "costs 2$ for 1 hour" do
+      park_calculator = ParkCalculator.new economy, 60
+      expect(park_calculator.estimated_cost).to eq 2
+    end
   end
 end
