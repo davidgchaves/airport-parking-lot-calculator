@@ -16,7 +16,7 @@ class ParkCalculator
     elsif parking == Parkings.short_term
       ShortTimeParkingCalculator.calculate_cost duration
     else parking == Parkings.economy
-      duration > 0 ? 2 : 0
+      duration > 0 ? (((duration - 1) / 60) + 1) * 2 : 0
     end
   end
 end
