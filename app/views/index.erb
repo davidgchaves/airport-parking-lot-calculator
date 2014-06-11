@@ -7,7 +7,7 @@
     <p>PARKING COST CALCULATOR</p>
       <%= form '/', :post %>
         <p>
-          <label for="parking-lot">Choose a Parking Lot </label>
+          <%= label :parking_lot, nil, display = 'Choose a Parking Lot' %>
           <select name="parking-lot">
             <option value="valet" selected>Valet Parking</option>
             <option value="short-term">Short-Term Parking</option>
@@ -18,13 +18,13 @@
         </p>
 
         <p>
-          <label for="starting-date">Please input entry date and time</label>
+          <%= label :times_and_dates, nil, display = 'Please input entry date and time' %>
           <%= input :times_and_dates, :starting_date, value: 'YYYY/MM/DD' %>
           <%= input :times_and_dates, :starting_time, value: '12:00' %>
         </p>
 
         <p>
-          <label for="leaving-date">Please input leaving date and time</label>
+          <%= label :times_and_dates, nil, display = 'Please input leaving date and time' %>
           <%= input :times_and_dates, :leaving_date, value: 'YYYY/MM/DD' %>
           <%= input :times_and_dates, :leaving_time, value: '12:00' %>
         </p>
