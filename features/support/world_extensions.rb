@@ -38,11 +38,11 @@ module KnowsTheSinatraApp
 
       select parking, from: "parking-lot"
 
-      fill_in "starting-date", with: starting_date
-      fill_in "starting-time", with: starting_time
+      fill_in "times_and_dates_starting_date", with: starting_date
+      fill_in "times_and_dates_starting_time", with: starting_time
 
-      fill_in "leaving-date", with: leaving_date
-      fill_in "leaving-time", with: leaving_time
+      fill_in "times_and_dates_leaving_date", with: leaving_date
+      fill_in "times_and_dates_leaving_time", with: leaving_time
     end
 
     def calculate_cost

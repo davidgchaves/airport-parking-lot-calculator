@@ -1,9 +1,9 @@
 require 'time_difference'
 
 class TimeInterval
-  def initialize(starting_date, starting_time, leaving_date, leaving_time)
-    @starting = TimeInterval.build_time starting_date, starting_time
-    @leaving = TimeInterval.build_time leaving_date, leaving_time
+  def initialize(times_and_dates)
+    @starting = TimeInterval.build_time times_and_dates["starting_date"], times_and_dates["starting_time"]
+    @leaving = TimeInterval.build_time times_and_dates["leaving_date"], times_and_dates["leaving_time"]
   end
 
   def duration

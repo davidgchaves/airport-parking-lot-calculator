@@ -23,22 +23,15 @@ class SinatraApp < Sinatra::Base
 
   def initialize_ui_values
     @estimated_cost ||= 0
-    @starting_date ||= "YYYY/MM/DD"
-    @starting_time ||= "12:00"
-    @leaving_date ||=  "YYYY/MM/DD"
-    @leaving_time ||= "12:00"
   end
 
   def set_parking_lot_and_dates
     @parking_lot = params["parking-lot"]
-    @starting_date = params["starting-date"]
-    @starting_time = params["starting-time"]
-    @leaving_date = params["leaving-date"]
-    @leaving_time = params["leaving-time"]
+    @times_and_dates = params["times_and_dates"]
   end
 
   def calculate_estimated_cost
-    time_interval = TimeInterval.new @starting_date, @starting_time, @leaving_date, @leaving_time
+    time_interval = TimeInterval.new @times_and_dates
     park_calculator = ParkCalculator.new @parking_lot, time_interval.duration
     park_calculator.estimated_cost
   end

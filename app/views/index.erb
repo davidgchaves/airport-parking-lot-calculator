@@ -5,7 +5,7 @@
   </head>
   <body>
     <p>PARKING COST CALCULATOR</p>
-      <form method="post">
+      <%= form '/', :post %>
         <p>
           <label for="parking-lot">Choose a Parking Lot </label>
           <select name="parking-lot">
@@ -19,14 +19,14 @@
 
         <p>
           <label for="starting-date">Please input entry date and time</label>
-          <input type="text" name="starting-date" value=<%= @starting_date %>>
-          <input type="text" name="starting-time" value=<%= @starting_time %>>
+          <%= input :times_and_dates, :starting_date, value: 'YYYY/MM/DD' %>
+          <%= input :times_and_dates, :starting_time, value: '12:00' %>
         </p>
 
         <p>
           <label for="leaving-date">Please input leaving date and time</label>
-          <input type="text" name="leaving-date" value=<%= @leaving_date %>>
-          <input type="text" name="leaving-time" value=<%= @leaving_time %>>
+          <%= input :times_and_dates, :leaving_date, value: 'YYYY/MM/DD' %>
+          <%= input :times_and_dates, :leaving_time, value: '12:00' %>
         </p>
 
         <p>Estimated Parking costs: <span id="estimated_cost"><%= @estimated_cost %>$</span></p>
