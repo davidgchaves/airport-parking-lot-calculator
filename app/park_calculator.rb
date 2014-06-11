@@ -13,8 +13,10 @@ class ParkCalculator
   def estimated_cost
     if parking == Parkings.valet
       ValetParkingCalculator.calculate_cost duration
-    else
+    elsif parking == Parkings.short_term
       ShortTimeParkingCalculator.calculate_cost duration
+    else parking == Parkings.economy
+      0
     end
   end
 end

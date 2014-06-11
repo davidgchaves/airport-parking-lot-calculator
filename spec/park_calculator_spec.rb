@@ -113,4 +113,13 @@ describe ParkCalculator do
       expect(park_calculator.estimated_cost).to eq 96 + 12 + 1
     end
   end
+
+  context "Parking in the Economy Parking Lot" do
+    let(:economy) { Parkings.economy }
+
+    it "costs 0$ for 0 minutes" do
+      park_calculator = ParkCalculator.new economy, 0
+      expect(park_calculator.estimated_cost).to eq 0
+    end
+  end
 end

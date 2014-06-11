@@ -6,4 +6,8 @@ class Parkings
   def self.short_term
     "short-term"
   end
+
+  def self.economy
+    "economy"
+  end
 end
