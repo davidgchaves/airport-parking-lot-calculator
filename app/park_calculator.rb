@@ -16,7 +16,7 @@ class ParkCalculator
     elsif parking == Parkings.short_term
       ShortTimeParkingCalculator.calculate_cost duration
     else parking == Parkings.economy
-      (FULL_DAY_COST * full_days_parked) + last_day_cost(last_day_duration)
+      duration > SIX_DAYS ? DISCOUNTED_WEEK_COST : (DISCOUNTED_DAY_COST * full_days_parked(duration)) + last_day_cost(last_day_duration(duration))
     end
   end
 
@@ -24,21 +24,24 @@ class ParkCalculator
 
   A_MINUTE = 1
   AN_HOUR = 60
-  FOUR_HOURS = 4 * 60
-  A_DAY = 24 * 60
-  PRICE_PER_HOUR = 2
-  FULL_DAY_COST = 9
+  FOUR_HOURS = 4 * AN_HOUR
+  A_DAY = 24 * AN_HOUR
+  SIX_DAYS = 6 * A_DAY
 
-  def full_days_parked
+  HOUR_COST = 2
+  DISCOUNTED_DAY_COST = 9
+  DISCOUNTED_WEEK_COST = 54
+
+  def full_days_parked(duration)
     (duration - A_MINUTE) / A_DAY
   end
 
   def last_day_cost(duration)
-    duration > FOUR_HOURS ? FULL_DAY_COST : (hours_parked(duration) + 1) * PRICE_PER_HOUR
+    duration > FOUR_HOURS ? DISCOUNTED_DAY_COST : (hours_parked(duration) + 1) * HOUR_COST
   end
 
-  def last_day_duration
-    duration - (full_days_parked * A_DAY)
+  def last_day_duration(duration)
+    duration - (full_days_parked(duration) * A_DAY)
   end
 
   def hours_parked(duration)
