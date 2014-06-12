@@ -10,4 +10,8 @@ class Parkings
   def self.economy
     "economy"
   end
+
+  def self.long_term_garage
+    "long-term-garage"
+  end
 end

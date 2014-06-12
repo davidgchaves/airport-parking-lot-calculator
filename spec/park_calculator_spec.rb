@@ -197,4 +197,13 @@ describe ParkCalculator do
       expect(park_calculator.estimated_cost).to eq 216
     end
   end
+
+  context "Parking in the Long-Term Garage Parking Lot" do
+    let(:long_term_garage) { Parkings.long_term_garage }
+
+    it "costs 0$ for 0 minutes" do
+      park_calculator = ParkCalculator.new long_term_garage, 0
+      expect(park_calculator.estimated_cost).to eq 0
+    end
+  end
 end
