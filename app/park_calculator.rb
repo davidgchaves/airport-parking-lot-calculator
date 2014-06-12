@@ -42,15 +42,23 @@ class ParkCalculator
   end
 
   def hours_parked(duration)
-    ((duration - A_MINUTE) / AN_HOUR)
+    (duration - A_MINUTE) / AN_HOUR
   end
 
   def last_week_cost(duration)
-    duration > SIX_DAYS ? DISCOUNTED_WEEK_COST : (DISCOUNTED_DAY_COST * days_parked(duration)) + last_day_cost(last_day_duration(duration))
+    duration > SIX_DAYS ? DISCOUNTED_WEEK_COST : produce_week_cost(duration)
   end
 
   def last_day_cost(duration)
-    duration > FOUR_HOURS ? DISCOUNTED_DAY_COST : (hours_parked(duration) + 1) * HOUR_COST
+    duration > FOUR_HOURS ? DISCOUNTED_DAY_COST : produce_day_cost(duration)
+  end
+
+  def produce_week_cost(duration)
+    (DISCOUNTED_DAY_COST * days_parked(duration)) + last_day_cost(last_day_duration(duration))
+  end
+
+  def produce_day_cost(duration)
+    HOUR_COST * (hours_parked(duration) + 1)
   end
 
   def last_week_duration(duration)
