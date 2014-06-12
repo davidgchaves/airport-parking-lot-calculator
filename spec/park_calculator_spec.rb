@@ -156,35 +156,5 @@ describe ParkCalculator do
       park_calculator = ParkCalculator.new economy, 24*60 + 1
       expect(park_calculator.estimated_cost).to eq 11
     end
-
-    it "costs 53$ for 5 days and 4 hours" do
-      park_calculator = ParkCalculator.new economy, 5*24*60 + 4*60
-      expect(park_calculator.estimated_cost).to eq 53
-    end
-
-    it "costs 54$ for 5 days 4 hours and 1 minute" do
-      park_calculator = ParkCalculator.new economy, 5*24*60 + 4*60 + 1
-      expect(park_calculator.estimated_cost).to eq 54
-    end
-
-    it "costs 54$ for 6 days" do
-      park_calculator = ParkCalculator.new economy, 6*24*60
-      expect(park_calculator.estimated_cost).to eq 54
-    end
-
-    it "costs 54$ for 6 days and 1 minute" do
-      park_calculator = ParkCalculator.new economy, 6*24*60 + 1
-      expect(park_calculator.estimated_cost).to eq 54
-    end
-
-    it "costs 54$ for 1 week" do
-      park_calculator = ParkCalculator.new economy, 7*24*60
-      expect(park_calculator.estimated_cost).to eq 54
-    end
-
-    it "costs 56$ for 1 week and 1 minute" do
-      park_calculator = ParkCalculator.new economy, 7*24*60 + 1
-      expect(park_calculator.estimated_cost).to eq 56
-    end
   end
 end
