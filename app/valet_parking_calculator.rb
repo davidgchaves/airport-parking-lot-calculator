@@ -1,23 +1,22 @@
 class ValetParkingCalculator
   def self.calculate_cost(duration)
-    @duration = duration
-    charge_per_day * number_of_days
+    day_cost(duration) * (days_parked(duration) + 1)
   end
 
   private
 
+  A_MINUTE = 1
   FIVE_HOURS = 5*60
   A_DAY = 24*60
 
-  def self.charge_per_day
-    12 + more_than_five_hours_charge
+  FIVE_HOURS_COST = 12
+  DAY_COST = 18
+
+  def self.day_cost(duration)
+    duration > FIVE_HOURS ? DAY_COST : FIVE_HOURS_COST
   end
 
-  def self.number_of_days
-    ((@duration - 1) / A_DAY) + 1
-  end
-
-  def self.more_than_five_hours_charge
-    @duration > FIVE_HOURS ? 6 : 0
+  def self.days_parked(duration)
+    (duration - A_MINUTE) / A_DAY
   end
 end
