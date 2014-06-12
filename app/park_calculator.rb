@@ -1,6 +1,6 @@
 require_relative 'parkings'
 require_relative 'valet_parking_calculator'
-require_relative 'short_time_parking_calculator'
+require_relative 'short_term_parking_calculator'
 require_relative 'economy_parking_calculator'
 
 class ParkCalculator
