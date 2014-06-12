@@ -1,35 +1,36 @@
 class ShortTimeParkingCalculator
   def self.calculate_cost(duration)
     @duration = duration
-    (FULL_DAY_COST * full_days_parked_in) + calculated_cost_for_last_day
+    (DISCOUNTED_DAY_COST * days_parked(duration)) + last_day_cost(last_day_duration(duration))
   end
 
   private
 
-  FULL_DAY_COST = 24
   A_MINUTE = 1
-  HALF_HOUR = 30
-  TWO_HALF_HOURS = 2 * HALF_HOUR
-  A_DAY = 24 * 60
+  A_HALF_HOUR = 30
+  TWO_HALF_HOURS = 2 * A_HALF_HOUR
+  TWENTY_FOUR_HALF_HOURS = 24 * A_HALF_HOUR
+  A_DAY = 48 * A_HALF_HOUR
 
-  def self.full_days_parked_in
-    (@duration + A_MINUTE) / A_DAY
+  DISCOUNTED_DAY_COST = 24
+
+  def self.days_parked(duration)
+    (duration - A_MINUTE) / A_DAY
   end
 
-  def self.calculated_cost_for_last_day
-    if @duration > 0
-      half_hours_parked > 24 ? FULL_DAY_COST : produce_partial_day_cost
-    else
-      0
-    end
+  def self.half_hours_parked(duration)
+    (duration - A_MINUTE) / A_HALF_HOUR
   end
 
-  def self.produce_partial_day_cost
-    @duration > TWO_HALF_HOURS ? half_hours_parked : 2
+  def self.last_day_cost(duration)
+    duration > TWENTY_FOUR_HALF_HOURS ? DISCOUNTED_DAY_COST : produce_day_cost(duration)
   end
 
-  def self.half_hours_parked
-    last_day_duration = @duration % A_DAY
-    ((last_day_duration - A_MINUTE) / HALF_HOUR) + 1
+  def self.produce_day_cost(duration)
+    @duration > TWO_HALF_HOURS ? half_hours_parked(duration) + 1 : 2
+  end
+
+  def self.last_day_duration(duration)
+    duration - (days_parked(duration) * A_DAY)
   end
 end
