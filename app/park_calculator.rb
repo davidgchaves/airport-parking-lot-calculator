@@ -20,11 +20,14 @@ class ParkCalculator
     when Parkings.economy
       EconomyParkingCalculator.calculate_cost duration
     when Parkings.long_term_garage
-     (duration / A_MINUTE) * 2
+     (((duration - A_MINUTE) / AN_HOUR) + 1) * HOUR_COST
     end
   end
 
   private
 
   A_MINUTE = 1
+  AN_HOUR = 60
+
+  HOUR_COST = 2
 end
