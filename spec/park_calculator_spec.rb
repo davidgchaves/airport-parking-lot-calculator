@@ -255,5 +255,10 @@ describe ParkCalculator do
       park_calculator = ParkCalculator.new long_term_garage, 7*24*60
       expect(park_calculator.estimated_cost).to eq 72
     end
+
+    it "costs 74$ for 1 week 1 minute" do
+      park_calculator = ParkCalculator.new long_term_garage, 7*24*60 + 1
+      expect(park_calculator.estimated_cost).to eq 74
+    end
   end
 end
