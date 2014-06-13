@@ -20,7 +20,7 @@ class ParkCalculator
     when Parkings.economy
       EconomyParkingCalculator.calculate_cost duration
     when Parkings.long_term_garage
-      DISCOUNTED_DAY_COST * days_parked(duration) + last_day_cost(last_day_duration(duration))
+      duration > SIX_DAYS ? DISCOUNTED_WEEK_COST : produce_week_cost(duration)
     end
   end
 
@@ -30,9 +30,15 @@ class ParkCalculator
   AN_HOUR = 60 * A_MINUTE
   SIX_HOURS = 6 * AN_HOUR
   A_DAY = 24 * AN_HOUR
+  SIX_DAYS = 6 * A_DAY
 
   HOUR_COST = 2
   DISCOUNTED_DAY_COST = 12
+  DISCOUNTED_WEEK_COST = 72
+
+  def produce_week_cost(duration)
+    DISCOUNTED_DAY_COST * days_parked(duration) + last_day_cost(last_day_duration(duration))
+  end
 
   def last_day_cost(duration)
     duration > SIX_HOURS ? DISCOUNTED_DAY_COST : produce_day_cost(duration)
