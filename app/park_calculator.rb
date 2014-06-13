@@ -20,7 +20,11 @@ class ParkCalculator
     when Parkings.economy
       EconomyParkingCalculator.calculate_cost duration
     when Parkings.long_term_garage
-      0
+     (duration / A_MINUTE) * 2
     end
   end
+
+  private
+
+  A_MINUTE = 1
 end
