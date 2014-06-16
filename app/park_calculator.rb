@@ -21,9 +21,9 @@ class ParkCalculator
     when Parkings.economy
       EconomyParkingCalculator.calculate_cost duration
     when Parkings.long_term_garage
-      LongTermParkingCalculator.calculate_garage_cost parking, duration
+      LongTermParkingCalculator.calculate_garage_cost duration
     when Parkings.long_term_surface
-      LongTermParkingCalculator.calculate_surface_cost parking, duration
+      LongTermParkingCalculator.calculate_surface_cost duration
     end
   end
 end

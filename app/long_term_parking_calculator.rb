@@ -1,10 +1,10 @@
 class LongTermParkingCalculator
-  def self.calculate_garage_cost(parking, duration)
+  def self.calculate_garage_cost(duration)
     DISCOUNTED_WEEK_COST_FOR_GARAGE * weeks_parked(duration) +
       last_week_cost(last_week_duration(duration), DISCOUNTED_WEEK_COST_FOR_GARAGE, CUT_HOUR_FOR_GARAGE, DISCOUNTED_DAY_COST_FOR_GARAGE)
   end
 
-  def self.calculate_surface_cost(parking, duration)
+  def self.calculate_surface_cost(duration)
     DISCOUNTED_WEEK_COST_FOR_SURFACE * weeks_parked(duration) +
       last_week_cost(last_week_duration(duration), DISCOUNTED_WEEK_COST_FOR_SURFACE, CUT_HOUR_FOR_SURFACE, DISCOUNTED_DAY_COST_FOR_SURFACE)
   end
