@@ -14,4 +14,8 @@ class Parkings
   def self.long_term_garage
     "long-term-garage"
   end
+
+  def self.long_term_surface
+    "long-term-surface"
+  end
 end

@@ -1,5 +1,5 @@
-class LongTermGarageParkingCalculator
-  def self.calculate_cost(duration)
+class LongTermParkingCalculator
+  def self.calculate_cost(parking, duration)
     DISCOUNTED_WEEK_COST * weeks_parked(duration) + last_week_cost(last_week_duration(duration))
   end
 
